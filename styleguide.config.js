@@ -2,10 +2,6 @@ module.exports = {
 	title: 'React Style Guide Example',
 	defaultExample: true,
 	webpackConfig: {
-		devServer: {
-			// Docs: https://codesandbox.io/docs/environment#how-can-i-tell-if-i-am-in-a-container-sandbox
-			disableHostCheck: !!process.env.CODESANDBOX_SSE,
-		},
 		module: {
 			rules: [
 				{
@@ -29,4 +25,15 @@ module.exports = {
 			],
 		},
 	},
+	configureServer(app) {
+	  // app is undefined here, because styleguidist@13.1.4 does not run on an express server
+	  // and devServer.app does not exist.
+	  // Since webpack-dev-server 4.0.0, support for the built-in Express server has been removed.
+	  //
+	  // next comment from styleguidist docs:
+      // `app` is the instance of the express server running Styleguidist
+      app.get('/custom-endpoint', (req, res) => {
+        res.status(200).send({ response: 'Server invoked' })
+      })
+    }
 };
