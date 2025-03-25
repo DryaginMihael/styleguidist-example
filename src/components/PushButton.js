@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './PushButton.css';
+import * as s from './PushButton.css';
 
 /**
  * An example-less button.

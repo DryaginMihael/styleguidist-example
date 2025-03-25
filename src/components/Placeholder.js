@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import s from './Placeholder.css';
+import * as s from './Placeholder.css';
 
 /**
  * Image placeholders.
